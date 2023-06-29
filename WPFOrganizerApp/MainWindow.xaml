@@ -6,20 +6,42 @@
         xmlns:local="clr-namespace:WPFOrganizerApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Grid Background="LightGray" Height="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
 
-            <Menu Background="LightGray" Grid.Column="0">
-                <MenuItem Header="Notatki" VerticalAlignment="Center" />
-                <MenuItem Header="Zadania" VerticalAlignment="Center" />
-                <MenuItem Header="Ustawienia" VerticalAlignment="Center" />
-            </Menu>
-
-            <TextBlock x:Name="userAccount" Grid.Column="1" Text="Zalogowany jako: " HorizontalAlignment="Left" Margin="472,0,0,0"  />
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="30" Background="DarkSlateGray">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Image Source="\Assets\user.png" Height="15" Width="15"/>
+                <TextBlock x:Name="userAccount" Text="Zalogowany jako: " Foreground="White" Margin="10,0,10,0"/>
+            </StackPanel>
         </Grid>
-    </StackPanel>
+        <Grid HorizontalAlignment="Left" Width="100" Background="DarkSlateGray">
+            <StackPanel>
+                <Grid Height="50">
+                    <TextBlock VerticalAlignment="Top" Text="OrganizerApp" Foreground="White" FontSize="13" Margin="0,10,0,0" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Grid>
+                <Button Name="noteButton" Click="noteClick" Cursor="Hand"  BorderBrush="Transparent" Background="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/notes.png" Margin="0,0,10,0" Height="15" />
+                        <TextBlock Text="NOTATKI" Foreground="white" />
+                    </StackPanel>
+                </Button>
+                <Button Name="todoButton" Click="todoClick" Cursor="Hand" BorderBrush="Transparent" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Assets/todo.png" Margin="0,0,10,0" Height="15" />
+                        <TextBlock Text="ZADANIA" Foreground="white"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Button Name="LogOut" VerticalAlignment="Bottom" Click="logoutClick" Cursor="Hand"  BorderBrush="Transparent" Background="Transparent">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/logout.png" Margin="0,0,10,0" Height="15" />
+                    <TextBlock Text="WYLOGUJ" Foreground="white" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid Margin="100,30,0,0">
+            <Frame x:Name="Main"/>
+        </Grid>
+    </Grid>
+    
 </Window>
