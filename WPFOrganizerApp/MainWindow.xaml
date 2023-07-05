@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:WPFOrganizerApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
+    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    
     <Grid>
         <Grid VerticalAlignment="Top" Height="30" Background="DarkSlateGray">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -32,6 +36,31 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+            <StackPanel VerticalAlignment="Center"  >
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UserEmail}" Value="admin">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <TextBlock Text="Panel Admina" Foreground="White"/>
+                <Button Name="CategoryAdd" Click="AddCategory_Click" Cursor="Hand" BorderBrush="Transparent" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Assets/category.png" Margin="0,0,10,0" Height="15" />
+                        <TextBlock Text="+ Kategoria" Foreground="white"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="CategoryDel" Click="DelCategory_Click" Cursor="Hand" BorderBrush="Transparent" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Assets/category.png" Margin="0,0,10,0" Height="15" />
+                        <TextBlock Text="- Kategoria" Foreground="white"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
             <Button Name="LogOut" VerticalAlignment="Bottom" Click="logoutClick" Cursor="Hand"  BorderBrush="Transparent" Background="Transparent">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Assets/logout.png" Margin="0,0,10,0" Height="15" />
@@ -40,7 +69,7 @@
             </Button>
         </Grid>
         <Grid Margin="100,30,0,0">
-            <Frame x:Name="Main"/>
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
     

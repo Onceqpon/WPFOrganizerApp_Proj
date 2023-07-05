@@ -9,6 +9,9 @@
       Title="NotePage">
 
     <Grid Background="White">
-        <TextBlock FontSize="100" Text="NotePage"/>
+        <Grid>
+            <DataGrid x:Name="noteGrid"/>
+        </Grid>
+        <Button x:Name="AddNote" Content="Dodaj Notatke" Click="Add_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
     </Grid>
 </Page>

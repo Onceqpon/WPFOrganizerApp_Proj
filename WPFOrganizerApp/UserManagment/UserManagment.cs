@@ -57,13 +57,13 @@ namespace WPFOrganizerApp.UserManagment
             }
         }
 
-        public string GetUserParameters(string email, string password)
+        public User GetUserParameters(string email, string password)
         {
             using (var db = new OrganizerDbContext())
             {
                 var userValue = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password); ;
 
-                return userValue.Name;
+                return userValue;
             }
 
         }

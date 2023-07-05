@@ -8,10 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\category.png" />
     <None Remove="Assets\logout.png" />
     <None Remove="Assets\notes.png" />
     <None Remove="Assets\todo.png" />
     <None Remove="Assets\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\category.png" />
   </ItemGroup>
 
   <ItemGroup>

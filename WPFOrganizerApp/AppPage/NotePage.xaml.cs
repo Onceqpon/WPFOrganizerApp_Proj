@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFOrganizerApp.Models;
 
 namespace WPFOrganizerApp.AppPage
 {
@@ -20,9 +21,38 @@ namespace WPFOrganizerApp.AppPage
     /// </summary>
     public partial class NotePage : Page
     {
-        public NotePage()
-        {
+        OrganizerDbContext noteData = new OrganizerDbContext();
+        int loginUser;
+
+        public NotePage(int userID)
+        {  
+            loginUser = userID;
             InitializeComponent();
+            var query =
+            from userNote in noteData.Notes
+            where userNote.UserId == loginUser
+            select new { userNote.Title, userNote.Content };
+
+            noteGrid.ItemsSource = query.ToList();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            var query =
+            from userNote in noteData.Notes
+            where userNote.UserId == loginUser
+            select new { userNote.Title, userNote.Content };
+
+            noteGrid.ItemsSource = query.ToList();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddNote addNote = new AddNote();
+            addNote.Show();
+        }
+
+
     }
 }

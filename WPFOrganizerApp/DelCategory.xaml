@@ -1,0 +1,32 @@
+﻿<Window x:Class="WPFOrganizerApp.DelCategory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFOrganizerApp"
+        mc:Ignorable="d"
+        Title="DelCategory" Height="300" Width="300">
+    <Border Background="DarkSlateGray">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="154.44"/>
+                <RowDefinition Height="Auto" MinHeight="49.96"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Top" Margin="0,53,0,0" HorizontalAlignment="Center" Height="186" Width="200" Grid.RowSpan="2">
+                <TextBlock Text="Usuń Kategorie" Foreground="White" FontSize="20" Margin="0 0 0 20"/>
+                <Label Content="Nazwa Kategori" Foreground="White"/>
+                <TextBlock Text="(usunąć możesz tylko nie używane kategorie)" Foreground="White" FontSize="8" Margin="4"/>
+                <ComboBox ItemsSource="{Binding UnusedCategories}"
+                    DisplayMemberPath="Name"
+                    SelectedValuePath="Id"
+                    SelectedValue="{Binding SelectedCategoryId, Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,42,0,5" Width="200" Grid.Row="1">
+                <Button Content="Usuń" Width="80" Margin="5" Click="Del_Click" Height="25"/>
+                <Button Content="Wyjdź" Width="100" Margin="5" Click="Exit_Click" Height="25"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
