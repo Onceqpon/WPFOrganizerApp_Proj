@@ -23,7 +23,7 @@
                     SelectedValuePath="Id"
                     SelectedValue="{Binding SelectedCategoryId, Mode=TwoWay}" />
                 <Label Content="Zawartość Notatki" Foreground="White"/>
-                <TextBox x:Name="NoteContext" Height="150"  Width="200" Margin="0 5"/>
+                <TextBox x:Name="NoteContent" Height="150"  Width="200" Margin="0 5"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Width="200" Grid.RowSpan="2">

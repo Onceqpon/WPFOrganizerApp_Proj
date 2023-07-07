@@ -31,26 +31,31 @@ namespace WPFOrganizerApp.AppPage
             var query =
             from userNote in noteData.Notes
             where userNote.UserId == loginUser
-            select new { userNote.Title, userNote.Content };
-
-            noteGrid.ItemsSource = query.ToList();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            var query =
-            from userNote in noteData.Notes
-            where userNote.UserId == loginUser
-            select new { userNote.Title, userNote.Content };
+            select new { userNote.Title, userNote.Category.Name, userNote.Content };
 
             noteGrid.ItemsSource = query.ToList();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            AddNote addNote = new AddNote();
+            AddNote addNote = new AddNote(loginUser);
             addNote.Show();
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            DelNote delNote = new DelNote(loginUser);
+            delNote.Show();
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            var currentPage = NavigationService?.Content as NotePage;
+            if (currentPage != null)
+            {
+                currentPage.Content = null;
+                currentPage.Content = new NotePage(loginUser);
+            }
         }
 
 

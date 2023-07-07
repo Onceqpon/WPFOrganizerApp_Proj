@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,9 +26,12 @@ namespace WPFOrganizerApp.AppPage
     {
 
         public ObservableCollection<Category> AllCategories { get; set; }
+        public int SelectedCategoryId { get; set; }
+        public int loginUserId { get; set; }
 
-        public AddNote()
+        public AddNote(int userId)
         {
+            loginUserId = userId;
             InitializeComponent();
             AllCategories = new ObservableCollection<Category>();
 
@@ -42,12 +46,44 @@ namespace WPFOrganizerApp.AppPage
 
         public void Save_Click(object sender, RoutedEventArgs e)
         {
+            string noteTitle = NoteTitle.Text;
+            string noteContent = NoteContent.Text;
+            int noteCategory = SelectedCategoryId;
+
+            using (var context = new OrganizerDbContext())
+            {
+                if (CanCreateNote(noteTitle, noteContent))
+                {
+                    MessageBox.Show("Notatka dodana poprawnie");
+                    
+                    var newNote = new Note
+                    {
+                        UserId = loginUserId,
+                        CategoryId = SelectedCategoryId,
+                        Title = noteTitle,
+                        Content = noteContent
+                    };
+
+                    context.Add(newNote);
+                    context.SaveChanges();
+                    Close();
+                }
+            }
 
         }
 
         public void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        public bool CanCreateNote(string title, string context)
+        {
+            if(!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(context) && SelectedCategoryId != 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
