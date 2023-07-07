@@ -10,11 +10,16 @@
 
     <Grid Background="White">
         <Grid>
-            <DataGrid x:Name="noteGrid"/>
+            <DataGrid x:Name="noteGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tytuł" Binding="{Binding Title}" />
+                    <DataGridTextColumn Header="Kategorie" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Treść" Binding="{Binding Content}" />
+                </DataGrid.Columns>
+            </DataGrid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="AddNote" Content="Dodaj Notatke" Click="Add_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
                 <Button x:Name="DelNote" Content="Usuń Notatke" Click="Del_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
-                <Button x:Name="RefreshSite" Content="Odśwież" Click="Refresh_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
             </StackPanel>
         </Grid>
     </Grid>

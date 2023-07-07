@@ -19,7 +19,7 @@ public partial class OrganizerDbContext : DbContext
 
     public virtual DbSet<Note> Notes { get; set; }
 
-    public virtual DbSet<Task> Tasks { get; set; }
+    public virtual DbSet<Tasks> Tasks { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -52,7 +52,7 @@ public partial class OrganizerDbContext : DbContext
                 .HasConstraintName("FK__Notes__UserId__286302EC");
         });
 
-        modelBuilder.Entity<Task>(entity =>
+        modelBuilder.Entity<Tasks>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Tasks__3214EC0769A287D2");
 

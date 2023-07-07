@@ -59,7 +59,7 @@ namespace WPFOrganizerApp
 
         private void todoClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new TodoPage();
+            Main.Content = new TodoPage(logInUser.Id);
         }
 
         private void logoutClick(object sender, RoutedEventArgs e)

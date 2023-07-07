@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WPFOrganizerApp.Models;
 
-public partial class Task
+public partial class Tasks
 {
     public int Id { get; set; }
 

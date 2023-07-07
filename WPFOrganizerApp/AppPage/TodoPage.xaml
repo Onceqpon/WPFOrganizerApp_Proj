@@ -9,6 +9,22 @@
       Title="TodoPage">
 
     <Grid Background="White">
-        <TextBlock FontSize="100" Text="ToDoPAge"/>
+        <Grid>
+            <DataGrid x:Name="taskGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tytuł" Binding="{Binding Title}" />
+                    <DataGridTextColumn Header="Opis" Binding="{Binding Description}" />
+                    <DataGridTextColumn Header="Piorytet" Binding="{Binding Priority}" />
+                    <DataGridCheckBoxColumn Header="Czy zrobione" Binding="{Binding IsCompleted, Mode=OneWay}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="AddTask" Content="Dodaj Zadanie" Click="Add_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+                <Button x:Name="DelTask" Content="Usuń Zadanie" Click="Del_Click" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+                <Button x:Name="UpdTask" Content="Zaaktualizuj Zadanie" Click="Upd_Click" Width="120" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
+

@@ -48,16 +48,6 @@ namespace WPFOrganizerApp.AppPage
             delNote.Show();
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            var currentPage = NavigationService?.Content as NotePage;
-            if (currentPage != null)
-            {
-                currentPage.Content = null;
-                currentPage.Content = new NotePage(loginUser);
-            }
-        }
-
 
     }
 }
