@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="RegisterPage" Height="350" Width="300">
+        Title="RegisterPage" Height="350" Width="300"
+        WindowStartupLocation="CenterScreen">
     <Border Background="DarkSlateGray">
         <Grid>
             <Grid.RowDefinitions>
@@ -24,6 +25,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,92,0,-45" Width="200" Grid.Row="1">
                 <Button Content="Zarejestruj się" Width="100" Click="RegisterButton_Click" Height="25"/>
+                <Button Content="Wróć" Width="80" Margin="10" Click="Back_Click" Height="25"/>
             </StackPanel>
         </Grid>
     </Border>

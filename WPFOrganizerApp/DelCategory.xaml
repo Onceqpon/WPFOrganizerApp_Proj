@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFOrganizerApp"
         mc:Ignorable="d"
-        Title="DelCategory" Height="300" Width="300">
+        Title="DelCategory" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen">
     <Border Background="DarkSlateGray">
         <Grid>
             <Grid.RowDefinitions>

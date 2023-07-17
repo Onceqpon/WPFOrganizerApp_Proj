@@ -76,5 +76,12 @@ namespace WPFOrganizerApp
             return true;
 
         }
+
+        public void Back_Click(object sender, EventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            Close();
+        }
     }
 }

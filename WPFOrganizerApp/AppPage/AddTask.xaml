@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFOrganizerApp.AppPage"
         mc:Ignorable="d"
-               Title="AddTask" Height="352" Width="300">
+        Title="AddTask" Height="352" Width="300"
+        WindowStartupLocation="CenterScreen">
     <Border Background="DarkSlateGray" Margin="0,0,0,-6">
         <Grid>
             <Grid.RowDefinitions>

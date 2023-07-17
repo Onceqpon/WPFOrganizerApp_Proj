@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFOrganizerApp.AppPage"
         mc:Ignorable="d"
-        Title="AddNote" Height="300" Width="300">
+        Title="AddNote" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen">
     <Border Background="DarkSlateGray">
         <Grid>
             <Grid.RowDefinitions>
@@ -14,8 +15,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="300">
-                <TextBlock Text="Usuń Zadanie" Foreground="White" FontSize="20" Margin="0, 30"/>
-                <Label Content="Tytuł Zadania" Foreground="White"/>
+                <TextBlock Text="Usuń Notatke" Foreground="White" FontSize="20" Margin="0, 30"/>
+                <Label Content="Tytuł Notatki" Foreground="White"/>
                 <ComboBox ItemsSource="{Binding AllUserTitle}"
                     DisplayMemberPath="Title"
                     SelectedValuePath="Id"
