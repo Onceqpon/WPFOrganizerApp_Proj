@@ -20,6 +20,8 @@ Aplikacja Organizer umożliwia tworzenie i zarządzanie zadaniami. Każde zadani
 
 Aby korzystać z aplikacji Organizer, użytkownik musi utworzyć konto. Tworzenie konta wymaga podania nazwy użytkownika, hasła i innych niezbędnych informacji. Po utworzeniu konta użytkownik może zalogować się do aplikacji, co umożliwia dostęp do swoich notatek i zadań.
 
+Aby zalogować się jako damin jako email oraz hasło wpisujemy 'admin'.
+
 ![image](./doc/login.png)
 ![image](./doc/register.png)
 
@@ -45,3 +47,45 @@ Aby uruchomić aplikację Organizer w środowisku Visual Studio, wykonaj następ
 6. Po uruchomieniu aplikacji będziesz mógł korzystać z jej funkcji, tworzyć notatki, zarządzać zadaniami i korzystać z innych dostępnych opcji.
 
 Po wykonaniu powyższych kroków aplikacja Organizer będzie gotowa do użytku. Możesz zacząć organizować swoje notatki i zadania w sposób efektywny i przejrzysty.
+
+## Kod Bazy Danych
+
+```sql
+-- Tworzenie tabeli "Users"
+CREATE TABLE [dbo].[Users] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [Name] NVARCHAR(100) NOT NULL,
+  [Email] NVARCHAR(100) NOT NULL,
+  [Password] NVARCHAR(100) NOT NULL
+);
+
+-- Tworzenie tabeli "Categories"
+CREATE TABLE [dbo].[Categories] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [Name] NVARCHAR(50) NOT NULL,
+);
+
+-- Tworzenie tabeli "Notes"
+CREATE TABLE [dbo].[Notes] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [UserId] INT NOT NULL,
+  [CategoryId] INT NOT NULL,
+  [Title] NVARCHAR(100) NOT NULL,
+  [Content] NVARCHAR(MAX),
+  FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
+  FOREIGN KEY ([CategoryId]) REFERENCES [Categories]([Id])
+);
+
+-- Tworzenie tabeli "Tasks"
+CREATE TABLE [dbo].[Tasks] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [UserId] INT NOT NULL,
+  [Title] NVARCHAR(100) NOT NULL,
+  [Description] NVARCHAR(MAX),
+  [Priority] NVARCHAR(20),
+  [IsCompleted] BIT DEFAULT 0,
+  FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
+);
+
+INSERT INTO [dbo].[Users] ([Name], [Email], [Password])
+VALUES ('admin', 'admin', 'admin');
