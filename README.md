@@ -8,17 +8,26 @@ Aplikacja Organizer to narzędzie do zarządzania notatkami i zadaniami, które 
 
 Użytkownicy aplikacji mogą tworzyć nowe notatki, które zawierają tekstową treść. Każda notatka posiada tytuł, treść oraz kategorie. Notatki mogą być zapisywane w aplikacji, a także usuwane według potrzeb użytkownika.
 
+![image](./Doc/note.png)
+
 ### Zadania
 
 Aplikacja Organizer umożliwia tworzenie i zarządzanie zadaniami. Każde zadanie może mieć określony priorytet, opis oraz status (ukończone/nieukończone). Użytkownik ma możliwość dodawania usuwania zadań w aplikacji.
+
+![image](./Doc/task.png)
 
 ### Konto użytkownika
 
 Aby korzystać z aplikacji Organizer, użytkownik musi utworzyć konto. Tworzenie konta wymaga podania nazwy użytkownika, hasła i innych niezbędnych informacji. Po utworzeniu konta użytkownik może zalogować się do aplikacji, co umożliwia dostęp do swoich notatek i zadań.
 
+![image](./Doc/login.png)
+![image](./Doc/register.png)
+
 ### Kategorie
 
 Administratorzy aplikacji mają dodatkowe uprawnienia do zarządzania kategoriami. Kategorie są używane w celu przypisywania notatek do konkretnych tematów lub obszarów. Dzięki kategoriom użytkownik może łatwo organizować notatki i szybko odnajdywać potrzebne informacje. Administratorzy mogą tworzyć, edytować i usuwać kategorie w aplikacji.
+
+![image](./Doc/admin.png)
 
 ## Technologie
 
