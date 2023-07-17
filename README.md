@@ -51,6 +51,13 @@ Po wykonaniu powyższych kroków aplikacja Organizer będzie gotowa do użytku. 
 ## Kod Bazy Danych
 
 ```sql
+
+-- Tworzenie bazy danych "OrganizerDB"
+CREATE DATABASE OrganizerDB;
+
+-- Używanie bazy danych "OrganizerDB"
+USE OrganizerDB;
+
 -- Tworzenie tabeli "Users"
 CREATE TABLE [dbo].[Users] (
   [Id] INT IDENTITY(1,1) PRIMARY KEY,
