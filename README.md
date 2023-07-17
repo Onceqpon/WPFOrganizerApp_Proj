@@ -50,6 +50,9 @@ Po wykonaniu powyższych kroków aplikacja Organizer będzie gotowa do użytku. 
 
 ## Kod Bazy Danych
 
+1. Połącz visual studio z bazą danych "(localdb)\MSSQLLocalDB"
+2. Następnie stwórz bazę danych za pomocą kodu querry:
+
 ```sql
 
 -- Tworzenie bazy danych "OrganizerDB"
